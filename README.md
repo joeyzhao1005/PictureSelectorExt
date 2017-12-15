@@ -1,6 +1,7 @@
 # PictureSelector的拓展类
 
 > PictureSelector工程：https://github.com/LuckSiege/PictureSelector
+
 > 依赖版本：4.0.0
 
 
