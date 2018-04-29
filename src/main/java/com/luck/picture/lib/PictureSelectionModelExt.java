@@ -57,11 +57,13 @@ public class PictureSelectionModelExt {
             }
 
             if (ext.selector != null) {
-                if (ext.selector.getActivity() != null)
+                if (ext.selector.getActivity() != null) {
                     ext.activity = new WeakReference<Activity>(ext.selector.getActivity());
+                }
 
-                if (ext.selector.getFragment() != null)
+                if (ext.selector.getFragment() != null) {
                     ext.fragment = new WeakReference<Fragment>(ext.selector.getFragment());
+                }
             }
         } catch (Exception e) {
             Log.getStackTraceString(e);
@@ -71,16 +73,18 @@ public class PictureSelectionModelExt {
     }
 
     public Activity getActivity() {
-        if (activity == null)
+        if (activity == null) {
             return null;
+        }
 
         return activity.get();
     }
 
 
     public Fragment getFragment() {
-        if (fragment == null)
+        if (fragment == null) {
             return null;
+        }
 
         return fragment.get();
     }

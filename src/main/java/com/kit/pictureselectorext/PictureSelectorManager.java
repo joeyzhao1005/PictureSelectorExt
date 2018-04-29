@@ -18,8 +18,9 @@ public class PictureSelectorManager {
     private static PictureSelectorManager pictureSelectorManager;
 
     public static PictureSelectorManager getInstance() {
-        if (pictureSelectorManager == null)
+        if (pictureSelectorManager == null) {
             pictureSelectorManager = new PictureSelectorManager();
+        }
 
         return pictureSelectorManager;
     }
