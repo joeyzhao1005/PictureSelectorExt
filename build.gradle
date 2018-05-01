@@ -9,6 +9,17 @@ android {
         minSdkVersion 14
         targetSdkVersion 27
     }
+
+    flavorDimensions "default"
+    productFlavors {
+        zhao {}
+    }
+
+    buildTypes {
+        debug {}
+        prePublish {}
+        release {}
+    }
 }
 
 dependencies {
