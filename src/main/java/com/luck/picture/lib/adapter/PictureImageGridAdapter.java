@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -184,7 +185,8 @@ public class PictureImageGridAdapter extends RecyclerView.Adapter<RecyclerView.V
                 contentHolder.iv_picture.setImageResource(R.drawable.audio_placeholder);
             } else {
 
-                ImageShower.getInstance().showFile(contentHolder.iv_picture,path);
+                contentHolder.iv_picture.setImageResource(R.drawable.image_placeholder);
+                ImageShower.getInstance().showFile(contentHolder.iv_picture, path);
 //                RequestOptions options = new RequestOptions();
 //                if (overrideWidth <= 0 && overrideHeight <= 0) {
 //                    options.sizeMultiplier(sizeMultiplier);
@@ -256,6 +258,22 @@ public class PictureImageGridAdapter extends RecyclerView.Adapter<RecyclerView.V
                     context.getString(R.string.picture_tape)
                     : context.getString(R.string.picture_take_picture);
             tv_title_camera.setText(title);
+        }
+    }
+
+
+    @Override
+    public void onViewRecycled(@NonNull RecyclerView.ViewHolder holder) {
+        super.onViewRecycled(holder);
+        ImageView imageView = ((ImageView) holder.itemView.findViewById(R.id.iv_picture));
+        if (imageView == null) {
+            return;
+        }
+        ImageShower.getInstance().cancel(imageView);
+        if (mimeType == PictureMimeType.ofAudio()) {
+            imageView.setImageResource(R.drawable.audio_placeholder);
+        } else {
+            imageView.setImageResource(R.drawable.image_placeholder);
         }
     }
 
