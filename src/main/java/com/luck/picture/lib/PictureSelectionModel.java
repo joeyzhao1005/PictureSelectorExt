@@ -2,9 +2,9 @@ package com.luck.picture.lib;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.annotation.FloatRange;
-import android.support.annotation.StyleRes;
-import android.support.v4.app.Fragment;
+import androidx.annotation.FloatRange;
+import androidx.annotation.StyleRes;
+import androidx.fragment.app.Fragment;
 
 import com.zhao.image.imageloader.ImageLoader;
 import com.zhao.image.imageloader.ImageShower;
