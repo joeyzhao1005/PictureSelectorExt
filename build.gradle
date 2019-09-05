@@ -4,7 +4,6 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "28.0.1"
 
     defaultConfig {
         minSdkVersion 14
@@ -27,8 +26,8 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:${android_sdk_version}"
-    implementation "com.android.support:recyclerview-v7:${android_sdk_version}"
+    implementation "androidx.appcompat:appcompat:${android_x_appcompat}"
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
     implementation "io.reactivex.rxjava2:rxjava:${rxjava_version}"
     implementation "io.reactivex.rxjava2:rxandroid:${rxandroid_version}"
