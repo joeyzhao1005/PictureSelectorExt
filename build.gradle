@@ -3,12 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.1"
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 29
     }
 
     flavorDimensions "default"
@@ -27,17 +26,31 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:${android_sdk_version}"
-    implementation "com.android.support:recyclerview-v7:${android_sdk_version}"
+    implementation "androidx.appcompat:appcompat:${android_x_appcompat}"
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+    implementation "com.github.bumptech.glide:glide:${glide_version}"
+    kapt "com.github.bumptech.glide:compiler:${glide_version}"
 
     implementation "io.reactivex.rxjava2:rxjava:${rxjava_version}"
     implementation "io.reactivex.rxjava2:rxandroid:${rxandroid_version}"
 
-    implementation project(':ucrop')
+    implementation 'com.commit451:PhotoView:1.2.4'
 
 
-//    implementation 'com.github.bumptech.glide:glide:4.7.1'
-//    kapt 'com.github.bumptech.glide:compiler:4.7.1'
+    api('com.github.LuckSiege.PictureSelector:picture_library:v2.2.4') {
+                exclude group: 'androidx.recyclerview', module: 'recyclerview'
+                exclude group: 'androidx.appcompat', module: 'appcompat'
+                exclude group: 'io.reactivex.rxjava2', module: 'rxjava'
+                exclude group: 'io.reactivex.rxjava2', module: 'rxandroid'
+                exclude group: 'com.github.bumptech.glide', module: 'glide'
+                exclude group: 'com.commit451', module: 'PhotoView'
+            }
+//    implementation project(':ucrop')
+
+
+//    implementation "com.github.bumptech.glide:glide:${glide_version}"
+//    kapt "com.github.bumptech.glide:compiler:${glide_version}"
 }
 
 repositories {

@@ -3,9 +3,9 @@ package com.kit.pictureselectorext;
 import android.app.Activity;
 
 import com.luck.picture.lib.PictureSelectionModel;
+import com.luck.picture.lib.PictureSelectionModelExt;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
-import com.luck.picture.lib.PictureSelectionModelExt;
 
 /**
  * 使用示例manager管理类做相应的配置项操作
