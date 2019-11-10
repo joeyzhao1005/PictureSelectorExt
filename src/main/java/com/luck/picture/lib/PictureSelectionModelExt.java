@@ -1,7 +1,9 @@
 package com.luck.picture.lib;
 
 import android.app.Activity;
+
 import androidx.fragment.app.Fragment;
+
 import android.util.Log;
 
 import com.luck.picture.lib.config.PictureSelectionConfig;
@@ -62,7 +64,7 @@ public class PictureSelectionModelExt {
                 }
 
                 if (ext.selector.getFragment() != null) {
-                    ext.fragment = new WeakReference<Object>(ext.selector.getFragment());
+                    ext.fragment = new WeakReference<Fragment>(ext.selector.getFragment());
                 }
             }
         } catch (Exception e) {
@@ -81,16 +83,12 @@ public class PictureSelectionModelExt {
     }
 
 
+
     public Fragment getFragment() {
         if (fragment == null) {
             return null;
         }
-        if(fragment.get() instanceof Fragment){
-            return (Fragment)fragment.get();
-
-        }
-
-        return null;
+        return fragment.get();
     }
 
 
@@ -99,7 +97,7 @@ public class PictureSelectionModelExt {
     public PictureSelectionConfig selectionConfig;
 
     protected WeakReference<Activity> activity;
-    protected WeakReference<Object> fragment;
+    protected WeakReference<Fragment> fragment;
 
 
     public static final class PictureSelectorType {

@@ -38,7 +38,7 @@ dependencies {
     implementation 'com.commit451:PhotoView:1.2.4'
 
 
-    api('com.github.LuckSiege.PictureSelector:picture_library:v2.2.4') {
+    api('com.github.LuckSiege.PictureSelector:picture_library:v2.2.5') {
                 exclude group: 'androidx.recyclerview', module: 'recyclerview'
                 exclude group: 'androidx.appcompat', module: 'appcompat'
                 exclude group: 'io.reactivex.rxjava2', module: 'rxjava'
