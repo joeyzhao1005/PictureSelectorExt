@@ -35,8 +35,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:${rxjava_version}"
     implementation "io.reactivex.rxjava2:rxandroid:${rxandroid_version}"
 
-    implementation 'com.commit451:PhotoView:1.2.4'
-
 
     api('com.github.LuckSiege.PictureSelector:picture_library:v2.2.9') {
                 exclude group: 'androidx.recyclerview', module: 'recyclerview'
@@ -44,7 +42,6 @@ dependencies {
                 exclude group: 'io.reactivex.rxjava2', module: 'rxjava'
                 exclude group: 'io.reactivex.rxjava2', module: 'rxandroid'
                 exclude group: 'com.github.bumptech.glide', module: 'glide'
-                exclude group: 'com.commit451', module: 'PhotoView'
             }
 //    implementation project(':ucrop')
 
