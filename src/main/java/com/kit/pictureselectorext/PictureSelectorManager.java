@@ -1,11 +1,20 @@
 package com.kit.pictureselectorext;
 
 import android.app.Activity;
+import android.content.Context;
+import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+
+import com.kit.imagelib.imageloader.ImageLoader;
 import com.luck.picture.lib.PictureSelectionModel;
 import com.luck.picture.lib.PictureSelectionModelExt;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
+import com.luck.picture.lib.engine.ImageEngine;
+import com.luck.picture.lib.widget.longimage.SubsamplingScaleImageView;
+
+import java.io.File;
 
 /**
  * 使用示例manager管理类做相应的配置项操作
@@ -45,6 +54,32 @@ public class PictureSelectorManager {
         PictureSelector selector = PictureSelector.create(activity);
         PictureSelectionModel model = selector.openGallery(mimeType) //1图片 or 2视频 LocalMediaLoader.TYPE_IMAGE,TYPE_VIDEO
 //                .cropWH(width, height) //裁剪大小
+                .loadImageEngine(new ImageEngine() {
+                    @Override
+                    public void loadImage(@NonNull Context context, @NonNull String url, @NonNull ImageView imageView) {
+                        ImageLoader.create().source(url).into(imageView);
+                    }
+
+                    @Override
+                    public void loadImage(@NonNull Context context, @NonNull String url, @NonNull ImageView imageView, SubsamplingScaleImageView longImageView) {
+                        ImageLoader.create().source(url).into(imageView);
+                    }
+
+                    @Override
+                    public void loadFolderImage(@NonNull Context context, @NonNull String url, @NonNull ImageView imageView) {
+                        ImageLoader.create().source(url).into(imageView);
+                    }
+
+                    @Override
+                    public void loadAsGifImage(@NonNull Context context, @NonNull String url, @NonNull ImageView imageView) {
+                        ImageLoader.create().source(url).into(imageView);
+                    }
+
+                    @Override
+                    public void loadGridImage(@NonNull Context context, @NonNull String url, @NonNull ImageView imageView) {
+                        ImageLoader.create().source(url).into(imageView);
+                    }
+                })
                 .withAspectRatio(width, height)// int 裁剪比例 如16:9 3:2 3:4 1:1 可自定义
                 .compress(true) //是否压缩
                 .minimumCompressSize(2 * 1024)

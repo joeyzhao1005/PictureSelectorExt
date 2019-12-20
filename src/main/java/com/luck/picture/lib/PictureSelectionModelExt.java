@@ -18,7 +18,9 @@ import java.lang.reflect.Field;
  * <p>
  * 项目中需要拓展PictureSelectionModel可继承于该类 然后做相对应的自定义操作 如 添加跳转界面的策略 添加跳转动画等
  * <p>
- * Created by Zhao on 2017/12/14.
+ *
+ * @author Zhao
+ * @date 2017/12/14
  */
 public class PictureSelectionModelExt {
 
