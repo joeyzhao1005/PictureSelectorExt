@@ -12,6 +12,7 @@ import com.luck.picture.lib.PictureSelectionModelExt;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.engine.ImageEngine;
+import com.luck.picture.lib.listener.ImageCompleteCallback;
 import com.luck.picture.lib.widget.longimage.SubsamplingScaleImageView;
 
 import java.io.File;
@@ -55,6 +56,12 @@ public class PictureSelectorManager {
         PictureSelectionModel model = selector.openGallery(mimeType) //1图片 or 2视频 LocalMediaLoader.TYPE_IMAGE,TYPE_VIDEO
 //                .cropWH(width, height) //裁剪大小
                 .loadImageEngine(new ImageEngine() {
+
+                    @Override
+                    public void loadImage(@NonNull Context context, @NonNull String url, @NonNull ImageView imageView, SubsamplingScaleImageView longImageView, ImageCompleteCallback callback) {
+                        ImageLoader.create().source(url).into(imageView);
+                    }
+
                     @Override
                     public void loadImage(@NonNull Context context, @NonNull String url, @NonNull ImageView imageView) {
                         ImageLoader.create().source(url).into(imageView);
