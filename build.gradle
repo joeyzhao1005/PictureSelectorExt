@@ -43,7 +43,7 @@ dependencies {
 //        exclude group: 'com.github.bumptech.glide', module: 'glide'
 //    }
 
-    api('com.github.LuckSiege.PictureSelector:picture_library:v2.4.7') {
+    api('com.github.LuckSiege.PictureSelector:picture_library:v2.4.8') {
                 exclude group: 'androidx.recyclerview', module: 'recyclerview'
                 exclude group: 'androidx.appcompat', module: 'appcompat'
                 exclude group: 'com.github.bumptech.glide', module: 'glide'
